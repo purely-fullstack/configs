@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: notification-service
+
+  mail:
+    host: smtppro.zoho.in
+    port: 465
+    username: 
+    password: 
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+          ssl:
+            enable: true
+
+server:
+  port: 9020
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-service:8761/eureka/
+  instance:
+    hostname: notification-service
