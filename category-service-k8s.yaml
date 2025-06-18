@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: category-service
+
+  data:
+    mongodb:
+      uri: mongodb://raju:rajureddy98@ac-httvetd-shard-00-00.7s1vkpd.mongodb.net:27017,ac-httvetd-shard-00-01.7s1vkpd.mongodb.net:27017,ac-httvetd-shard-00-02.7s1vkpd.mongodb.net:27017/?ssl=true&retryWrites=true&w=majority
+      port: 27017
+      database: purely_category_service
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 9000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-service:8761/eureka/
+  instance:
+    hostname: category-service
