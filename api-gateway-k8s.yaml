@@ -7,54 +7,51 @@ spring:
 
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
       routes:
         - id: auth-service
-          uri: lb://AUTH-SERVICE
+          uri: http://auth-service:8080
           predicates:
             - Path=/auth-service/**
           filters:
             - StripPrefix=1
 
         - id: notification-service
-          uri: lb://NOTIFICATION-SERVICE
+          uri: http://notification-service:8080
           predicates:
             - Path=/notification-service/**
           filters:
             - StripPrefix=1
 
         - id: category-service
-          uri: lb://CATEGORY-SERVICE
+          uri: http://category-service:8080
           predicates:
             - Path=/category-service/**
           filters:
             - StripPrefix=1
 
         - id: product-service
-          uri: lb://PRODUCT-SERVICE
+          uri: http://product-service:8080
           predicates:
             - Path=/product-service/**
           filters:
             - StripPrefix=1
 
         - id: user-service
-          uri: lb://USER-SERVICE
+          uri: http://user-service:8080
           predicates:
             - Path=/user-service/**
           filters:
             - StripPrefix=1
 
         - id: cart-service
-          uri: lb://CART-SERVICE
+          uri: http://cart-service:8080
           predicates:
             - Path=/cart-service/**
           filters:
             - StripPrefix=1
 
         - id: order-service
-          uri: lb://ORDER-SERVICE
+          uri: http://order-service:8080
           predicates:
             - Path=/order-service/**
           filters:
@@ -80,7 +77,8 @@ spring:
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://eureka-service:8761/eureka/
-  instance:
-    hostname: api-gateway
+    enabled: false
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
