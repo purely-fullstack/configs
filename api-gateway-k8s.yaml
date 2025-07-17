@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: api-gateway
+  main:
+    allow-bean-definition-overriding: true
 
   cloud:
     gateway:
@@ -78,7 +80,3 @@ spring:
 eureka:
   client:
     enabled: false
-
-spring:
-  main:
-    allow-bean-definition-overriding: true
