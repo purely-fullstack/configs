@@ -17,7 +17,5 @@ server:
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: 
-  instance:
-    hostname: cart-service
+    register-with-eureka: false
+    fetch-registry: false
